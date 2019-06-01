@@ -1,0 +1,45 @@
+<html>
+<head>
+   <title> slide show </title>
+       <link rel="stylesheet" type="text/css" href="css/slideShow.css"/>
+   <script src="js/jquery-3.2.1.js"></script>
+   <script>
+
+       $(document).ready(function() {
+           $(".leftButton").click(function () {
+               $("div").animate({
+                   marginLeft: '-=200px'
+               }, 500)
+           });
+
+           $(".rightButton").click(function () {
+               $("div").animate({
+                   marginLeft: '+=200px'
+               }, 500)
+           });
+
+
+           $(".UpButton").click(function () {
+               $("div").slideUp();
+           });
+
+           $(".DownButton").click(function () {
+               $("div").slideDown();
+           });
+
+           $(".ToggelButton").click(function () {
+               $("div").slideToggle();
+           });
+       });
+
+   </script>
+</head>
+<body>
+   <button class="leftButton">  < </button>
+   <button class="rightButton"> > </button>
+   <button class="UpButton"> slideUp </button>
+   <button class="DownButton"> slideDown </button>
+   <button class="ToggelButton"> slideToggel </button>
+   <div class="slideDiv"> </div>
+</body>
+</html>

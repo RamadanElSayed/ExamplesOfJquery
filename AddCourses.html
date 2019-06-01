@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Add Courses</title>
+    <style>
+
+        .tr1 {
+            background-color: pink;
+        }
+
+        .tr2 {
+            background-color: cyan;
+        }
+
+        .tr3 {
+            background-color: yellow;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.courses').on('click', '.delete', function () {
+                $(this).closest('tr').remove();
+            });
+
+            $("#searchCont").on("keyup", function() {
+                var value = $(this).val();
+
+                $(".courses tr").each(function(index) {
+                    if (index != 0) {
+                        $row = $(this);
+                        var id = $row.find("td:first").text();
+                        if (id.indexOf(value) != 0) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    }
+                });
+            })
+
+            //https://www.w3schools.com/jquery/jquery_filters.asp
+            $("#btn").click(function () {
+                var radioValue = $("input[name='Courses']:checked").val();
+                var name = $("#courseCont").val();
+                if (jQuery.trim(name).length > 0) {
+                    if (radioValue == "1") {
+                        var markup = "<tr class='tr1'><td>" + name + "</td><td><input type='button' class='delete' value='delete'></td></tr>";
+                        $(".courses").append(markup);
+                    }
+                    else if (radioValue == "2") {
+                        var markup = "<tr class='tr2'><td>" + name + "</td><td><input type='button' class='delete' value='delete'></td></tr>";
+                        $(".courses").append(markup);
+                    }
+                    if (radioValue == "3") {
+                        var markup = "<tr class='tr3'><td>" + name + "</td><td><input type='button' class='delete' value='delete'></td></tr>";
+                        $(".courses").append(markup);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<form>
+    <table>
+        <tr>
+            <td colspan="3">
+                Courses:
+                <input type="radio" name="Courses" value="1" checked="checked"/>Front End
+                <input type="radio" name="Courses" value="2"/>Back End
+                <input type="radio" name="Courses" value="3"/>Mobile
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" id="courseCont"/></td>
+            <td><input type="button" id="btn" value="Add"/></td>
+        </tr>
+        <tr colspan=3>
+            <td>Search : <input type="text" id="searchCont" value=""/></td>
+        </tr>
+    </table>
+</form>
+
+<table class="courses">
+
+</table>
+</body>
+</html>

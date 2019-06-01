@@ -1,0 +1,49 @@
+<html>
+<head>
+   <title> Moving An Element... </title>
+       <link rel="stylesheet" type="text/css" href="css/move.css"/>
+   <script src="js/jquery-3.2.1.js"></script>
+   <script>
+
+       $(document).ready(function() {
+           var currentwidth = $('.container').width();
+           var currentwidthImg = $("img").width();
+           var flag=true;
+           $(".go").click(function () {
+
+               if (flag)
+               {
+                   $("img").animate({
+                       left:currentwidth-currentwidthImg
+                   }, 3000)
+                   flag=false;
+
+                   $(".go").text("Stop");
+
+               }
+               else if (!flag)
+               {
+                   $("img").stop();
+                   flag=true;
+                   $(".go").text("go");
+               }
+
+           })
+       });
+
+   </script>
+</head>
+<body>
+
+   <div class="container">
+
+
+    <img  src="img/tea.png" />
+
+
+
+   </div>
+   <button class="go"> go</button>
+
+</body>
+</html>

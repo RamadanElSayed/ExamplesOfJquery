@@ -1,0 +1,36 @@
+<html>
+<head>
+   <title> show hidden elements </title>
+       <link rel="stylesheet" type="text/css" href="css/show.css"/>
+   <script src="js/jquery-3.2.1.js"></script>
+   <script>
+       $(document).ready(function() {
+
+           var flag=true;
+           $("button").click(function () {
+
+               if (flag)
+               {
+                   $(".HideDiv").css('display' , 'none');
+                   flag=false;
+               }
+               else
+               {
+                   $(".HideDiv").css('display' , 'inline-block');
+                   flag=true;
+
+               }
+           });
+       });
+  
+   </script>
+</head>
+<body>
+    <button>show hidden elements </button>
+   <div> </div>
+   <div class="HideDiv">hidden </div>
+   <div> </div>
+    <div class="HideDiv"> hidden</div>
+   <div> </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+
+        <title> Resizing </title>
+           <script src="js/jquery-3.2.1.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+        var originalSize = $('.resizable').css('font-size');
+
+        $(".increase").click(function(){
+
+            var currentSize = $('.resizable').css('font-size');
+            var currentSize = parseFloat(currentSize)*1.2;
+            $('.resizable').css('font-size', currentSize);
+        });
+
+
+        $(".decrease").click(function(){
+
+            var currentSize = $('.resizable').css('font-size');
+            var currentSize = parseFloat(currentSize)*0.8;
+            $('.resizable').css('font-size', currentSize);
+        });
+
+        $(".reset").click(function(){
+
+            $('.resizable').css('font-size', originalSize);
+        });
+
+
+    });
+
+</script>
+<body>
+    <span>
+            <button class="increase">+</button>
+            <button class="decrease">-</button>
+            <button class="reset">reset</button>
+    </span>
+
+      <div class="resizable">hhhhhhhhhhhhhhhhh</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Try With JQuery Selectors</title>
+    <style>
+        li {
+            background-color: cyan;
+            border: 1px solid red;
+            border-radius: 3px;
+            padding: 12pt;
+            margin: 3pt;
+            font-family: "source-code-pro", Consolas, monospace;
+            font-size: 15px;
+            line-height: 1.3em;
+
+        }
+
+    </style>
+
+    <script src="js/jquery-3.2.1.js"></script>
+
+    <script>
+        /*
+                    Apply the following:
+
+
+
+        */
+
+        // 1- change "img" borders , width and height.
+
+        $(document).ready(function () {
+            $("img").css({
+                "border": "1px solid black",
+                "width": "400px",
+                "height": "400px"
+            });
+//			2- change background color for all "p" and "li" elements.
+
+            $("p").css("background-color", "red");
+
+            //3- choose all "p" that are direct child for "div" then change their color and background color
+            $("div p").css({
+                "background-color": "blue",
+                "color": "black"
+            });
+//      4-Replace every "P" with "a" with the same textContent.
+
+            $("p").each(function () {
+                var value=$(this).text();
+                $(this).replaceWith("<a href='#'>"+value+"</a>");
+
+            })
+
+            //      5-Append new "div" with class "gray" to the section  with class "trac".
+
+            $(".trac").append(" <div class='gray'></div>");
+
+            //  Insert new "P" with class "cyan" before "P" with class "fo".
+            $(".fo").before(" <p class='cyan'></p>");
+
+            // 7-Empty all "ul" with class "trac".
+           // $(".trac").empty();
+
+            //8-Remove class "fo" from all "p".
+            $("p").removeClass("fo");
+
+     //9-Wrap odd "img" with "span" and give it id "container" and change the source code to"img/tea".
+
+            $('img:odd').wrap('<span id="container">');
+            $('img:odd').attr("src","img/tea.png");
+
+         //   10-Add Class "fo" to the "p" which contains 'Let's Choose'.
+            $("p:contains(Let's Choose)").addClass("fo");
+
+
+          //  11-Insert new "div" with text Content "Coffee" after the  even "img".
+
+            $('img:even').after(" <div>Coffee</div>");
+
+            // 12-Change the background of odd "li" in the table into pink color.
+
+            $('li:odd').css("background-color", "pink");
+
+
+  //13- Find the second list item of the "ul"
+            // and change it's font style to "italic" and it's to "changed".
+            $("ul").children('li').eq(1).css("font-style", "italic");
+
+
+  // 14- Find the next direct sibling to
+            // second list item of the ordered list and change it's color to "red".
+            $("ol li:first").next().css({"color": "red"});
+
+
+// 15-change background color for all "li" elements with class "os" of ordered list.
+
+            $("ol li.os").css("background-color", "blue");
+
+        });
+    </script>
+</head>
+<body>
+
+<h2> Welcome To ITI </h2>
+<h3>Open Source Track </h3>
+<p class="fo"> Let's Play With Jquery</p>
+<p>Love Jquery </p>
+
+<ol id="list1" class="trac">
+    <li class="tel"> Telcome</li>
+    <li class="os"> Open Source Application</li>
+    <li class="iot"> Internet Of Things</li>
+    <li class="cl"> Cloud</li>
+</ol>
+</br>
+
+<div id="try">
+    <p class="os">Those are opensourcian </p>
+    <p class="iot">Those are opensourcian </p>
+    <p class="tel">Those are opensourcian </p>
+    <p class="cl">Those are opensourcian </p>
+</div>
+</br>
+
+<p>Open Source Track </p>
+<p class="fo"> Let's Play With Selectors </p>
+<ul id="list2" class="trac">
+    <li class="tel"> Telcome</li>
+    <li class="os"> Open Source Application</li>
+    <li class="iot"> Internet Of Things</li>
+    <li class="cl"> Cloud</li>
+</ul>
+</br>
+</br>
+<h2>Drinks</h2>
+<p class="fo"> Let's Choose </p>
+<div id="im" class="fo">
+    <img src="img/Apple.png"/>
+    <img src="img/tea.png"/>
+</div>
+
+
+</body>
+
+</html>
